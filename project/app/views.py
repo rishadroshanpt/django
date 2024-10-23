@@ -62,3 +62,6 @@ def task6(req,units):
     else:
         charge=(units-200)*10
         return HttpResponse(charge+500)
+def demo(req):
+    a='boiiii'
+    return render(req,'demo.html',{'data':a})
