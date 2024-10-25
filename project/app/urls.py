@@ -7,6 +7,10 @@ urlpatterns=[
     path('task4/<int:ch>',views.task4),
     path('task5/<int:price>',views.task5),
     path('task6/<int:units>',views.task6),
-    path('demo',views.demo)
+    path('demo',views.demo),
+    path('display',views.display),
+    path('add',views.add),
+    path('edit_user/<id>',views.edit_user),
+    path('delete_user/<id>',views.delete_user)
     
     ]

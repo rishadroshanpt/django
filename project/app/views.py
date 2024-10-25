@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.http import HttpResponse
 # Create your views here.
 def fun1(req):
@@ -65,3 +65,37 @@ def task6(req,units):
 def demo(req):
     a='boiiii'
     return render(req,'demo.html',{'data':a})
+users=[{'id':'1','name':'anu','age':'12','email':'anu@gmail.com'}]
+def display(req):
+    return render(req,'user_reg.html',{'users':users})
+def add(req):
+    if req.method=='POST':
+        id=req.POST['id']
+        name=req.POST['name']
+        age=req.POST['age']
+        email=req.POST['email']
+        users.append({'id':id,'name':name,'age':age,'email':email})
+        return redirect(display)
+    else:
+        return redirect(display)
+def edit_user(req,id):
+    user=''
+    for i in users:
+        if i['id']==id:
+            user=i
+    if req.method=='POST':
+        id=req.POST['id']
+        name=req.POST['name']
+        age=req.POST['age']
+        email=req.POST['email']
+        user['id']=id
+        user['name']=name
+        user['age']=age
+        user['email']=email
+        return redirect(display)
+    return render(req,'edit_user.html',{'user':user})
+def delete_user(req,id):
+    for i in users:
+        if i['id']==id:
+            users.remove(i)
+    return redirect(display)
