@@ -11,6 +11,8 @@ urlpatterns=[
     path('display',views.display),
     path('add',views.add),
     path('edit_user/<id>',views.edit_user),
-    path('delete_user/<id>',views.delete_user)
+    path('delete_user/<id>',views.delete_user),
+    path('',views.index),
+    path('disStd',views.disStd)
     
     ]
