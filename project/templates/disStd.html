@@ -4,6 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        table{
+            margin: auto;
+            margin-top: 10%;
+            margin-bottom: 5%;
+            text-align: center;
+            width: 800px;
+        }
+        table,th,td{
+            border: 2px solid;
+        }
+        a{
+        text-decoration: none;
+        color: rgb(60, 0, 255);
+        }
+        a:hover{
+            color: rgb(221, 0, 22);
+            font-size: 20px;
+        }
+        .add{
+            margin-left: 50%;
+            border: 2px solid black;
+            padding: 10px;
+        }
+    </style>
 </head>
 <body>
     <table>
@@ -19,8 +44,11 @@
             <td>{{i.name}}</td>
             <td>{{i.age}}</td>
             <td>{{i.email}}</td>
+            <td><a href="editstd/{{i.pk}}">Edit</a></td>
+            <td><a href="dltstd/{{i.pk}}">Delete</a></td>
         </tr>
         {% endfor %}
     </table>
+    <a href="addstd" class="add">Add</a>
 </body>
 </html>

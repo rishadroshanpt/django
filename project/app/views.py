@@ -105,3 +105,29 @@ def index(req):
 def disStd(req):
     data=Student.objects.all()
     return render(req,'disStd.html',{'std':data})
+def add_std(req):
+    if req.method=='POST':
+        roll=req.POST['roll_no']
+        name=req.POST['name']
+        age=req.POST['age']
+        email=req.POST['email']
+        data=Student.objects.create(roll_no=roll,name=name,age=age,email=email)
+        data.save()
+        return redirect(disStd)
+    else:
+        return render(req,'add_std.html')
+def edt_std(req,id):
+    data=Student.objects.get(pk=id)
+    if req.method=='POST':
+        roll=req.POST['roll_no']
+        name=req.POST['name']
+        age=req.POST['age']
+        email=req.POST['email']
+        Student.objects.filter(pk=id).update(roll_no=roll,name=name,age=age,email=email)
+        return redirect(disStd)
+    return render(req,'edit_std.html',{'data':data})
+
+def dlt_std(req,id):
+    data=Student.objects.get(pk=id)
+    data.delete()
+    return redirect(disStd)
