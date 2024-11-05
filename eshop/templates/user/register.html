@@ -3,19 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>loginpage</title>
+    <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <style>
-        h4{
-            text-align: center;
-        }
         table{
             margin: auto;
             margin-top: 10%;
         }
-        a{
-            margin-left: 48%;
+        h2{
+            text-align: center;
         }
         .alert{
             width: 500px;
@@ -25,22 +22,25 @@
 </head>
 <body>
     <form action="" method="post">
-        <h4>LOGIN</h4>
+        <h2>REGISTER</h2>
         {% csrf_token %}
         <table>
             <tr>
-                <th>Username</th>
-                <td><input type="text" name="uname" placeholder="Username"></td>
+                <th>Name</th>
+                <td><input type="text" name="name" id="" placeholder="name"></td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td><input type="email" name="email" id="" placeholder="email"></td>
             </tr>
             <tr>
                 <th>Password</th>
-                <td><input type="password" name="pswd" placeholder="Password"></td>
+                <td><input type="password" name="password" id="" placeholder="password"></td>
             </tr>
             <tr>
-                <td colspan="2" style="text-align: center;"> <input type="submit" value="Submit" class="btn btn-primary"></td>
+                <td></td><td><input type="submit" value="Submit"></td>
             </tr>
         </table>
-        <a href="register">REGISTER</a>
     </form>
     {% if messages %}
     {% for message in messages %}
@@ -50,5 +50,6 @@
     </div>
     {% endfor %}
     {% endif %}
+    
 </body>
 </html>
