@@ -1,0 +1,21 @@
+body{
+    background-image: url("{% static 'images/bg.jpg' %}");
+    background-color: aqua;
+}
+.h4{
+    text-align: center;
+}
+.l_form{
+    width: 400px;
+    margin-top: 5%;
+    margin-left: 25%;
+    background-color: aquamarine;
+}
+.l_items{
+    margin: auto;
+    width: 300px;
+    padding: 50px;
+}
+.input{
+    background-color: rgba(255, 255, 255, 0);
+}
