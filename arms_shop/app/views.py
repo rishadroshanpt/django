@@ -2,7 +2,7 @@ from django.shortcuts import render,redirect
 from django.contrib.auth import authenticate,login,logout
 from .models import *
 import os
-from django.contrib.auth.models import User
+from django.contrib.auth.models import *
 from django.contrib import messages
 
 
@@ -62,9 +62,9 @@ def edit(req,pid):
             prd_price=req.POST['prd_price']
             ofr_price=req.POST['ofr_price']
             rtng=req.POST['rtng']
-            img=req.FILES.get('img')
+            img=req.FILES['img']
             if img:
-                Product.objects.filter(pk=pid).update(pro_id=prd_id,name=prd_name,price=prd_price,offer_price=ofr_price,img=img,rating=rtng)
+                Product.objects.filter(pk=pid).update(pro_id=prd_id,name=prd_name,price=prd_price,offer_price=ofr_price,rating=rtng,img=img)
             else:
                 Product.objects.filter(pk=pid).update(pro_id=prd_id,name=prd_name,price=prd_price,offer_price=ofr_price,rating=rtng)
             return redirect(home)
