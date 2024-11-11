@@ -10,6 +10,9 @@
         h2,a{
             text-align: center;
         }
+        .col-lg-4{
+          padding: 20px 10px;
+        }
     </style>
 </head>
 <body>
@@ -40,11 +43,11 @@
         {% for product in data %}
         <div class="col-lg-4">
           <div class="card">
-            <img class="card-img-top" src="{{product.img.url}}" alt="Card image" style="height: 400px; width: 100%;">
+            <img class="card-img-top" src="{{product.img.url}}" alt="Card image" style="height: 400px; width: 100%;object-fit: contain;">
             <div class="card-body">
               <h4 class="card-title">{{product.name}}</h4>
               <p class="card-text">{{product.dis}}</p>
-              <p class="card-text">₹{{product.price}}</p>
+              <s><p class="card-text">₹{{product.price}}</p></s>
               <h4 class="card-title">₹{{product.ofr_price}}</h4>
               <a href="edit_prod/{{product.pk}}" class="btn btn-primary">Edit</a>
               <a href="delete_prod/{{product.pk}}" class="btn btn-primary">Delete</a>
