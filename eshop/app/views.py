@@ -117,3 +117,15 @@ def user_home(req):
 def view_pro(req,pid):
     data=Product.objects.get(pk=pid)
     return render(req,'user/view_pro.html',{'data':data})
+
+def add_to_cart(req,pid):
+    prod=Product.objects.get(pk=pid)
+    user=User.objects.get(username=req.session['user'])
+    data=Cart.objects.create(user=user,product=prod)
+    data.save()
+    return redirect(view_cart)
+
+def view_cart(req):
+    user=User.objects.get(username=req.session['user'])
+    cart_det=Cart.objects.filter(user=user)
+    return render(req,'user/view_cart.html',{'cart_det':cart_det})
