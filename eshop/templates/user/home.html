@@ -16,6 +16,9 @@
         .card:hover{
             box-shadow: 0 0 15px;
         }
+        .col-lg-3{
+          padding: 20px;
+        }
     </style>
 </head>
 <body>
@@ -46,8 +49,8 @@
         {% for product in data %}
         <div class="col-lg-3">
             <a href="view_pro/{{product.pk}}">
-                <div class="card">
-                    <img class="card-img-top" src="{{product.img.url}}" alt="Card image" style="height: 400px; width: 100%;">
+                <div class="card h-100 w-100 d-inline-block">
+                    <img class="card-img-top" src="{{product.img.url}}" alt="Card image" style="height: 400px; width: 100%; object-fit:cover;">
                     <div class="card-body">
                       <h4 class="card-title">{{product.name}}</h4>
                       <p class="card-text">{{product.dis}}</p>
