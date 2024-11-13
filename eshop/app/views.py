@@ -33,6 +33,10 @@ def shp_login(req):
     else:
         return render(req,'login.html')
 
+
+# ------------------------admin----------------------------
+
+
 def shp_home(req):
     if 'eshop' in req.session:
         data=Product.objects.all()
@@ -92,6 +96,14 @@ def delete_prod(req,pid):
     data.delete()
     return redirect(shp_home)
 
+def bookings(req):
+    buy=Buy.objects.all()[::-1]
+    return render(req,'shop/bookings.html',{'buy':buy})
+
+
+# -----------------------------user-----------------------------
+
+
 def register(req):
     if req.method=='POST':
         name=req.POST['name']
@@ -135,6 +147,7 @@ def delete_cart(req,id):
     cart.delete()
     return redirect(view_cart)
 
+# buy from cart
 def user_buy(req,cid):
     user=User.objects.get(username=req.session['user'])
     cart=Cart.objects.get(pk=cid)
@@ -144,6 +157,7 @@ def user_buy(req,cid):
     buy.save()
     return redirect(view_cart)
 
+# buy directly from product
 def user_buy1(req,pid):
     user=User.objects.get(username=req.session['user'])
     product=Product.objects.get(pk=pid)
@@ -151,3 +165,8 @@ def user_buy1(req,pid):
     buy=Buy.objects.create(user=user,product=product,price=price)
     buy.save()
     return redirect(user_home)
+
+def user_bookings(req):
+    user=User.objects.get(username=req.session['user'])
+    buy=Buy.objects.filter(user=user)[::-1]
+    return render(req,'user/user_bookings.html',{'buy':buy})

@@ -10,6 +10,7 @@
     <style>
         .container{
             font-family: 'Times New Roman', Times, serif;
+            margin-top: 80px;
         }
         .row{
             border-bottom: 1px solid black;
@@ -40,7 +41,7 @@
     </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
         <div class="container-fluid">
           <a class="navbar-brand" href="#">e_Shop</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
@@ -55,6 +56,9 @@
                 <a class="nav-link" href="">Cart</a>
               </li>
               <li class="nav-item">
+                <a class="nav-link" href="user_bookings">Bookings</a>
+              </li>
+              <li class="nav-item">
                 <a class="nav-link" href="../shp_logout">Log out</a>
               </li>    
             </ul>
@@ -66,7 +70,7 @@
             <div class="row">
 
                 <div class="col-lg-5">
-                    <img src="{{i.product.img.url}}" alt="" style="width: 300px; height: 400px;object-fit: contain;">
+                    <img src="{{i.product.img.url}}" alt="" style="width: 300px; height: 400px;object-fit:cover;">
                 </div>
                 <div class="col-lg-7">
                     <h2>{{i.product.name}}</h2>
