@@ -1,0 +1,16 @@
+.bodybg{
+    background-image: url("/static/images/bg.jpg");
+    background-attachment: fixed;
+}
+.main{
+    margin-top: 40px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.l_form{
+    padding: 30px;
+    margin-left: 15%;
+    margin-top: 10%;
+    width: 400px;
+    background-color: rgba(250, 235, 215, 0.74);
+    border-radius: 10px;
+}
