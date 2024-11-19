@@ -40,9 +40,19 @@ def gallery_logout(req):
 
 # ---------------admin--------------------
 def admin_home(req):
-    return render(req,'admin/home.html')
+    if 'gallery' in req.session:
+        data=Images.objects.all()
+        return render(req,'admin/home.html',{'data':data})
+    else:
+        return redirect(gallery_login)
 
+def view_img1(req,id):
+    data=Images.objects.get(pk=id)
+    return render(req,'admin/view_img1.html',{'data':data})
 
+def users(req):
+    data=User.objects.all()
+    return render(req,'admin/users.html',{'data':data})
 # ---------------user--------------------
 
 def register(req):
@@ -79,3 +89,20 @@ def add_img(req):
             return render(req,'user/add_img.html')
     else:
         return redirect(gallery_login)
+    
+def my_img(req):
+    user=User.objects.get(username=req.session['user'])
+    myImg=Images.objects.filter(user=user)
+    return render(req,'user/my_img.html',{'myImg':myImg})
+
+def dlt_img(req,id):
+    image=Images.objects.get(pk=id)
+    url=image.img.url
+    og_path=url.split('/')[-1]
+    os.remove('media/'+og_path)
+    image.delete()
+    return redirect(my_img)
+
+def view_img(req,id):
+    data=Images.objects.get(pk=id)
+    return render(req,'user/view_img.html',{'data':data})

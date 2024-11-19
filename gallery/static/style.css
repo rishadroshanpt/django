@@ -3,7 +3,7 @@
     background-attachment: fixed;
 }
 .main{
-    margin-top: 40px;
+    margin-top: 60px;
     font-family: Arial, Helvetica, sans-serif;
 }
 .l_form{
@@ -13,4 +13,29 @@
     width: 400px;
     background-color: rgba(250, 235, 215, 0.74);
     border-radius: 10px;
+}
+h2{
+    font-weight: 700;
+    align-items: center;
+}
+.addImg{
+    width: 900px;
+    margin-left: 10%;
+}
+.delete{
+    color: rgb(188, 33, 33);
+    background-color: white;
+    border-radius: 5px;
+    font-weight: 700;
+    align-items: center;
+}
+.delete:hover{
+    background-color: rgb(188, 33, 33);
+    color: white;
+}
+.userTable{
+    width: 500px;
+    margin-left: 10%;
+    margin-top: 10%;
+    border: 1px solid black;
 }
