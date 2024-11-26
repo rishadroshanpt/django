@@ -32,6 +32,7 @@ def model(req):
         else:
             return JsonResponse(data.errors)
 
+@csrf_exempt
 def fun4(req,d):
     try:
         demo=student.objects.get(pk=d)
@@ -126,7 +127,7 @@ class fun8(APIView):
         except student.DoesNotExist:
             return Response(status=status.HTTP_404_NOT_FOUND)
         
-class genericapiview(generics.GenericAPIView,mixins.ListModelMixin,mixins.CreatModelMixin):
+class genericapiview(generics.GenericAPIView,mixins.ListModelMixin,mixins.CreateModelMixin):
     serializer_class=model_serializers
     queryset=student.objects.all()
     def get(self,req):
