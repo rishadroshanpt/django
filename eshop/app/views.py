@@ -171,5 +171,5 @@ def user_buy1(req,pid):
 
 def user_bookings(req):
     user=User.objects.get(username=req.session['user'])
-    buy=Buy.objects.filter(user=user)[::-1]
+    buy=Buy.objects.filter(user=user)
     return render(req,'user/user_bookings.html',{'buy':buy})

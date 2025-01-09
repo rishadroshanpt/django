@@ -10,7 +10,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
-    <nav class="navbar navbar-expand-sm navbar-dark">
+    <nav class="navbar navbar-expand-sm navbar-dark fixed-top">
         <div class="container">
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
             <span class="navbar-toggler-icon"></span>
@@ -18,7 +18,7 @@
           <div class="collapse navbar-collapse" id="mynavbar">
             <ul class="navbar-nav me-auto">
               <li class="nav-item">
-                <a class="nav-link" href="" style="color: black;">+91 7736013411</a>
+                <a class="nav-link" href="" style="color: black;"><img src="{% static 'images/logo.png' %}" alt="" width="60px" height="50px"></a>
               </li>
             </ul>
             <ul class="d-flex navbar-nav">
@@ -32,7 +32,7 @@
                   <a class="nav-link" href="" style="color: black;">Success Stories</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link reg" href="" style="background-color: black; color: #f8a61a;">Register Now</a>
+                    <a class="nav-link reg" href="" style="background-color: black; color: rgb(47, 202, 249);">Register Now</a>
                 </li>
             </ul>
           </div>
@@ -43,12 +43,58 @@
             <div class="row">
                 <div class="col-lg-7">
                     <div class="con">
-                        <h3>{{data.name}}</h3>
-                        <p>{{data.dis}}</p>
+                        <h2>{{data.name}}</h2>
+                        <h5>{{data.dis}}</h5>
+                        <div class="over">
+                          <h3>Overview</h3>
+                          <p>{{data.overview}}</p>
+                        </div>
                     </div>
                 </div>
                 <div class="col-lg-5">
                     <img src="{{data.image.url}}" alt="">
+                    <form action="" method="post">
+                      {% csrf_token %}
+                      <h3>ENQUIRY</h3>
+                      <table>
+                        <tr>
+                          <td><label for="Name">Name : </label></td>
+                          <td>
+                            <input type="text" name="Name" id="">
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <label for="Mobile">Mobile No. :</label>
+                          </td>
+                          <td>
+                            <input type="tel" name="Mobile" id="">
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <label for="Email">Email : </label>
+                          </td>
+                          <td>
+                            <input type="email" name="Email" id="">
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <label for="Msg">Message : </label>
+                          </td>
+                          <td>
+                            <input type="text" name="Msg" id="">
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <input type="submit" value="Submit">
+                          </td>
+                          <td></td>
+                        </tr>
+                      </table>
+                  </form>
                 </div>
             </div>
         </div>

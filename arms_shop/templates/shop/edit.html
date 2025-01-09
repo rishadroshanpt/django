@@ -24,43 +24,48 @@
     <div class="form-container">
     <div>
     <h4>UPDATE PRODUCTS</h4><br>
-    <form action="" method="post" enctype="multipart/form-data">
+    <form class="forms" action="" method="post" enctype="multipart/form-data">
       {% csrf_token %}
-      <div class="card edit-card">
-        <img class="cardimg" src="{{product.img.url}}" alt="" width="200px">
-        <div class="card-body">
-          <label for="img" class="form-label">Change Image:</label>
-          <input type="file" class="form-control" name="img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-5">
+            <div class="card edit-card">
+              <img class="cardimg" src="{{product.img.url}}" alt="" width="200px">
+              <div class="card-body">
+                <label for="img" class="form-label">Change Image:</label>
+                <input type="file" class="form-control" name="img">
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-7">
+            <div class="mb-2 mt-2">
+              <label for="prod_id" class="form-label">Product ID:</label>
+              <input type="text" class="form-control" placeholder="Enter Product Id" name="prd_id" value="{{product.pro_id}}">
+            </div>
+            <div class="mb-2">
+              <label for="prd_name" class="form-label">Product Name:</label>
+              <input type="text" class="form-control" placeholder="Enter Product name" name="prd_name" value="{{product.name}}">
+            </div>
+            <div class="mb-2">
+              <label for="price" class="form-label">Price:</label>
+              <input type="number" class="form-control" placeholder="Enter Product price" name="prd_price" value="{{product.price}}">
+            </div>
+            <div class="mb-2">
+              <label for="ofrprice" class="form-label">Offer Price:</label>
+              <input type="number" class="form-control" placeholder="Enter Offer price" name="ofr_price" value="{{product.offer_price}}">
+            </div>
+            <div class="mb-2">
+              <label for="dis" class="form-label">Rating:</label>
+              <input type="text" class="form-control" placeholder="Enter Product details" name="rtng" value="{{product.rating}}">
+            </div>
+            <div class="form-check mb-2">
+            </div>
+            <div>
+              <button type="submit" class="btn">UPDATE</button>
+            </div>
+          </div>
         </div>
       </div>
-        <div class="mb-2">
-          
-        </div>
-        <div class="mb-2 mt-2">
-            <label for="prod_id" class="form-label">Product ID:</label>
-            <input type="text" class="form-control" placeholder="Enter Product Id" name="prd_id" value="{{product.pro_id}}">
-          </div>
-          <div class="mb-2">
-            <label for="prd_name" class="form-label">Product Name:</label>
-            <input type="text" class="form-control" placeholder="Enter Product name" name="prd_name" value="{{product.name}}">
-          </div>
-          <div class="mb-2">
-            <label for="price" class="form-label">Price:</label>
-            <input type="number" class="form-control" placeholder="Enter Product price" name="prd_price" value="{{product.price}}">
-          </div>
-          <div class="mb-2">
-            <label for="ofrprice" class="form-label">Offer Price:</label>
-            <input type="number" class="form-control" placeholder="Enter Offer price" name="ofr_price" value="{{product.offer_price}}">
-          </div>
-          <div class="mb-2">
-            <label for="dis" class="form-label">Rating:</label>
-            <input type="text" class="form-control" placeholder="Enter Product details" name="rtng" value="{{product.rating}}">
-          </div>
-          <div class="form-check mb-2">
-          </div>
-          <div>
-            <button type="submit" class="btn btn-primary">UPDATE</button>
-          </div>
     </form>
 </div>
 </div>

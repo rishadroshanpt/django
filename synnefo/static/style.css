@@ -1,5 +1,5 @@
 .navbar{
-    background-color:#f8a61a;
+    background-color:rgb(47, 202, 249);
     height: 40px;
     color: black;
     font-weight: 500;
@@ -36,4 +36,16 @@
 }
 .col-lg-7 .con{
     padding: 90px;
+}
+h2,h3{
+    font-weight: 700;
+}
+.over{
+    background-color: white;
+    margin-top: 60px;
+    padding: 50px;
+    border-radius: 15px;
+}
+.col-lg-5 img{
+    margin-top: 100px;
 }

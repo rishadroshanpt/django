@@ -24,7 +24,7 @@
     <div class="form-container">
     <div>
     <h4>ADD PRODUCTS</h4><br>
-    <form action="" method="post" enctype="multipart/form-data">
+    <form class="forms" action="" method="post" enctype="multipart/form-data">
       {% csrf_token %}
         <div class="mb-2 mt-2">
             <label for="prod_id" class="form-label">Product ID:</label>
@@ -53,8 +53,8 @@
           <div class="form-check mb-2">
           </div>
           <div>
-            <a type="submit" href="home" class="btn btn-primary">HOME</a>
-            <button type="submit" class="btn btn-primary">ADD PRODUCT</button>
+            <a type="submit" href="home" class="btn">HOME</a>
+            <button type="submit" class="btn">ADD PRODUCT</button>
           </div>
     </form>
 </div>
